@@ -4,4 +4,138 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+html {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+body {
+  background: #fafafa;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+header .header {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header h1 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+header .header .dark-mode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header .dark-mode .moon-dark {
+  display: none;
+}
+
+header .header .dark-mode p {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.input-area {
+  width: 90%;
+  margin: 20px auto 0;
+  position: relative;
+}
+
+.input-area i {
+  position: absolute;
+  top: 50%;
+  left: 35px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #858585;
+}
+
+.input-area input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  padding-left: 75px;
+}
+
+.input-area ::-webkit-input-placeholder {
+  color: #b3b3b3;
+}
+
+.input-area :-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+.input-area ::-ms-input-placeholder {
+  color: #b3b3b3;
+}
+
+.input-area ::placeholder {
+  color: #b3b3b3;
+}
+
+.select-area {
+  display: none;
+  width: 90%;
+  margin: 40px auto 0px;
+}
+
+.countries {
+  width: 70%;
+  margin: 30px auto;
+  height: 50vh;
+}
+
+.countries country-card img {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.countries country-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.countries country-card span {
+  font-weight: 300;
+}
 /*# sourceMappingURL=style.css.map */

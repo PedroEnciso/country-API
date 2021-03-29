@@ -4,9 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+
     <title>World Countries</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <header>
+      <div class="header">
+        <h1>Where in the world?</h1>
+        <div class="dark-mode">
+          <i class="fas fa-moon moon-dark"></i>
+          <i class="far fa-moon moon-light"></i>
+          <p>Dark Mode</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="input-area">
+      <i class="fas fa-search"></i>
+      <input placeholder="Search for a country..." type="text" />
+    </section>
+    <secton class="select-area">
+      <select name="regions" id="filter">
+        <option value="0">Filter by Region</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </select>
+    </secton>
+    <section class="countries" id="countries"></section>
+
+    <template id="card-template">
+      <style>
+        .card {
+          height: fit-content;
+          width: 100%;
+          padding-bottom: 40px;
+          margin-bottom: 30px;
+          border-radius: 5px;
+          overflow: hidden;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .info-container {
+          margin: 20px auto 0px;
+          width: 85%;
+        }
+        p {
+          font-weight: 600;
+          padding-top: 5px;
+        }
+      </style>
+      <div class="card">
+        <slot name="flag">flag</slot>
+        <div class="info-container">
+          <slot name="country">Country name</slot>
+          <p>Population: <slot name="population">pop</slot></p>
+          <p>Region: <slot name="region">region</slot></p>
+          <p>Capital: <slot name="capital">capital</slot></p>
+        </div>
+      </div>
+    </template>
+    <script src="main.js"></script>
   </body>
 </html>
