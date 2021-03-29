@@ -15,6 +15,8 @@ customElements.define(
 
 // variables
 const countrySection = document.getElementById("countries");
+const inputArea = document.getElementById("input-area");
+const selectArea = document.getElementById("select-area");
 
 // functions
 
@@ -28,6 +30,8 @@ const getData = async () => {
 const createCountryCard = (country) => {
   // create card component
   const card = document.createElement("country-card");
+  card.setAttribute("id", country.name);
+  card.addEventListener("click", () => createDetailPage(country));
   // create info Components
   const flag = document.createElement("img");
   const name = document.createElement("h3");
@@ -56,6 +60,17 @@ const createCountryCard = (country) => {
   countrySection.appendChild(card);
 };
 
+const createDetailPage = (country) => {
+  clearScreen();
+  console.log(country.name);
+};
+
+const clearScreen = () => {
+  inputArea.style.display = "none";
+  selectArea.style.display = "none";
+  countrySection.style.display = "none";
+};
+
 // main logic
 const main = async () => {
   const countryData = await getData();
@@ -67,21 +82,3 @@ const main = async () => {
 
 // calling functions
 main();
-
-/* to create a country-card component
-  - create card component
-  - create info Components
-  - add info to components
-  - add slot attribute to Components
-  - add components to the country card component
-  - add country card to the country section
-
-  THIS IS THE STRUCTURE:
-        <country-card>
-          <img slot="flag" src="" alt="" />
-          <h3 slot="country">Germany</h3>
-          <span slot="population">81,770,900</span>
-          <span slot="region">Europe</span>
-          <span slot="capital">Berlin</span>
-      </country-card>
-*/

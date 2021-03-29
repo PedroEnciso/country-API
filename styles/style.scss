@@ -46,6 +46,7 @@ header {
 }
 
 .input-area {
+  display: none;
   width: 90%;
   margin: 20px auto 0;
   position: relative;
@@ -76,6 +77,7 @@ header {
 }
 
 .countries {
+  display: none;
   width: 70%;
   margin: 30px auto;
   height: 50vh;

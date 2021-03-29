@@ -30,11 +30,11 @@
       </div>
     </header>
 
-    <section class="input-area">
+    <section class="input-area" id="input-area">
       <i class="fas fa-search"></i>
       <input placeholder="Search for a country..." type="text" />
     </section>
-    <secton class="select-area">
+    <secton class="select-area" id="select-area">
       <select name="regions" id="filter">
         <option value="0">Filter by Region</option>
         <option value="africa">Africa</option>
@@ -45,6 +45,25 @@
       </select>
     </secton>
     <section class="countries" id="countries"></section>
+    <section class="detail-screen" id="detial-screen">
+      <div>
+        <button><i class="fas fa-long-arrow-alt-left"></i>Back</button>
+        <img src="" alt="" />
+        <p>Native Name:</p>
+        <p>Region:</p>
+        <p>Sub Region:</p>
+        <p>Capital:</p>
+        <p>Top Level Domain:</p>
+        <p>Currencies:</p>
+        <p>Languages:</p>
+        <h3>Border Countries</h3>
+        <div>
+          <button>France</button>
+          <button>Germany</button>
+          <button>Netherlands</button>
+        </div>
+      </div>
+    </section>
 
     <template id="card-template">
       <style>
@@ -76,6 +95,8 @@
         </div>
       </div>
     </template>
+
+    <template id="detail-template"></template>
     <script src="main.js"></script>
   </body>
 </html>
