@@ -140,4 +140,36 @@ header .header .dark-mode p {
 .countries country-card span {
   font-weight: 300;
 }
+
+detail-page i {
+  font-size: 14px;
+  padding-right: 10px;
+  color: #3b3b3b;
+}
+
+detail-page img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+detail-page .country-name {
+  margin: 40px 0 10px;
+  font-size: 20px;
+}
+
+detail-page span {
+  font-weight: 300;
+}
+
+@media only screen and (min-width: 376px) {
+  detail-page img {
+    width: 100%;
+    height: 100%;
+  }
+  detail-page .country-name {
+    margin-top: 0px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

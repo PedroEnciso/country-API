@@ -1,10 +1,24 @@
-// enables country card web components
+// create web components
 customElements.define(
   "country-card",
   class extends HTMLElement {
     constructor() {
       super();
       let warning = document.getElementById("card-template");
+      let mywarning = warning.content;
+      const shadowRoot = this.attachShadow({ mode: "open" }).appendChild(
+        mywarning.cloneNode(true)
+      );
+    }
+  }
+);
+
+customElements.define(
+  "detail-page",
+  class extends HTMLElement {
+    constructor() {
+      super();
+      let warning = document.getElementById("detail-template");
       let mywarning = warning.content;
       const shadowRoot = this.attachShadow({ mode: "open" }).appendChild(
         mywarning.cloneNode(true)
