@@ -119,6 +119,18 @@ header .header .dark-mode p {
   width: 70%;
   margin: 30px auto;
   height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.countries country-card {
+  margin-bottom: 60px;
 }
 
 .countries country-card img {
@@ -137,6 +149,12 @@ header .header .dark-mode p {
 
 .countries country-card span {
   font-weight: 300;
+}
+
+@media only screen and (min-width: 376px) {
+  .countries {
+    width: 90%;
+  }
 }
 
 .detail-screen {

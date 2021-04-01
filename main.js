@@ -158,7 +158,7 @@ const backToHome = () => {
   removeButtons();
   inputArea.style.display = "block";
   selectArea.style.display = "none";
-  countrySection.style.display = "block";
+  countrySection.style.display = "flex";
   detailScreen.style.display = "none";
 };
 
