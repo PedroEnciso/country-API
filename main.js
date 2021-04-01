@@ -31,6 +31,10 @@ customElements.define(
 const countrySection = document.getElementById("countries");
 const inputArea = document.getElementById("input-area");
 const selectArea = document.getElementById("select-area");
+const AUTOCOMPLETE_OPTIONS = 4;
+const input = document.getElementById("input");
+const suggestionPanel = document.getElementById("suggestion-panel");
+let countryNameArray = [];
 
 // detail page variables
 const backButton = document.getElementById("back-button");
@@ -105,11 +109,19 @@ const createDetailPage = (country) => {
   createBorderButtons(country);
 };
 
-const createSpecificDetailPage = (name) => {
-  fetch(`https://restcountries.eu/rest/v2/alpha/${name}`)
+const createSpecificDetailPageWithAbbreviation = (abbreviation) => {
+  fetch(`https://restcountries.eu/rest/v2/alpha/${abbreviation}`)
     .then((resp) => resp.json())
     .then((data) => {
       createDetailPage(data);
+    });
+};
+
+const createSpecificDetailPageWithName = (name) => {
+  fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+    .then((resp) => resp.json())
+    .then((data) => {
+      createDetailPage(data[0]);
     });
 };
 
@@ -140,13 +152,32 @@ const createBorderButtons = (country) => {
     const button = document.createElement("BUTTON");
     button.innerHTML = country.borders[i];
     button.addEventListener("click", () => {
-      createSpecificDetailPage(button.innerHTML);
+      createSpecificDetailPageWithAbbreviation(button.innerHTML);
     });
     buttonDiv.appendChild(button);
   }
 };
 
+const createSuggestion = (country, index, arrayLength) => {
+  const button = document.createElement("button");
+  button.innerHTML = country;
+  button.addEventListener("click", () => {
+    createSpecificDetailPageWithName(button.innerHTML);
+  });
+  suggestionPanel.appendChild(button);
+
+  if (index < arrayLength - 1) {
+    const hr = document.createElement("hr");
+    suggestionPanel.appendChild(hr);
+  }
+  if (input.value === "") {
+    suggestionPanel.innerHTML = "";
+  }
+};
+
 const clearScreen = () => {
+  input.value = "";
+  suggestionPanel.innerHTML = "";
   inputArea.style.display = "none";
   selectArea.style.display = "none";
   countrySection.style.display = "none";
@@ -166,17 +197,42 @@ const removeButtons = () => {
   buttonDiv.innerHTML = "";
 };
 
+// copied from google
+const capitalize = (s) => {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+};
+
 // main logic
 const main = async () => {
   const countryData = await getData();
 
   for (i = 0; i < countryData.length; i++) {
     createCountryCard(countryData[i]);
+    countryNameArray.push(countryData[i].name);
   }
 };
 
 //event listeners
 backButton.addEventListener("click", backToHome);
+
+// autocomplete functionality
+input.addEventListener("keyup", () => {
+  const search = capitalize(input.value);
+  suggestionPanel.innerHTML = "";
+  const suggestions = countryNameArray.filter((country) => {
+    return country.startsWith(search);
+  });
+  if (suggestions.length < AUTOCOMPLETE_OPTIONS) {
+    for (let i = 0; i < suggestions.length; i++) {
+      createSuggestion(suggestions[i], i, suggestions.length);
+    }
+  } else {
+    for (let i = 0; i < AUTOCOMPLETE_OPTIONS; i++) {
+      createSuggestion(suggestions[i], i, AUTOCOMPLETE_OPTIONS);
+    }
+  }
+});
 
 // calling functions
 main();

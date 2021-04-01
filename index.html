@@ -31,16 +31,11 @@
     </header>
 
     <section class="input-area" id="input-area">
-      <i class="fas fa-search"></i>
-      <input placeholder="Search for a country..." type="text" />
-      <!--      <div id="suggestion-panel">
-          <div>
-              <p>Belgium</p>
-          </div>
-          <div>
-            <p>Belgium</p>
-        </div>
-      </div>-->
+      <div class="icon-container">
+        <i class="fas fa-search"></i>
+      </div>
+      <input autocomplete="off" id="input" placeholder="Search for a country..." type="text" />
+      <div class="suggestion-panel" id="suggestion-panel">
     </section>
     <secton class="select-area" id="select-area">
       <select name="regions" id="filter">
