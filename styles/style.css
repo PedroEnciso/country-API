@@ -69,7 +69,6 @@ header .header .dark-mode p {
 }
 
 .input-area {
-  display: none;
   width: 90%;
   margin: 20px auto 0;
   position: relative;
@@ -117,7 +116,6 @@ header .header .dark-mode p {
 }
 
 .countries {
-  display: none;
   width: 70%;
   margin: 30px auto;
   height: 50vh;
@@ -141,35 +139,75 @@ header .header .dark-mode p {
   font-weight: 300;
 }
 
-detail-page i {
+.detail-screen {
+  display: none;
+}
+
+.detail-screen detail-page .back-button {
+  padding: 8px 28px;
+  border: none;
+  background: white;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  color: #3b3b3b;
+  font-weight: 300;
+}
+
+.detail-screen detail-page .back-button i {
   font-size: 14px;
   padding-right: 10px;
   color: #3b3b3b;
 }
 
-detail-page img {
+.detail-screen detail-page img {
   width: 100%;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-detail-page .country-name {
+.detail-screen detail-page .country-name {
   margin: 40px 0 10px;
   font-size: 20px;
 }
 
-detail-page span {
+.detail-screen detail-page span {
   font-weight: 300;
 }
 
+.detail-screen detail-page .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  margin: 15px 0 60px;
+}
+
+.detail-screen detail-page .buttons button {
+  width: 90px;
+  height: 25px;
+  border: none;
+  margin: 0px 5px 10px;
+  background: white;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  font-weight: 300;
+  color: #3b3b3b;
+  font-size: 12px;
+}
+
 @media only screen and (min-width: 376px) {
-  detail-page img {
+  .detail-screen detail-page img {
     width: 100%;
     height: 100%;
   }
-  detail-page .country-name {
+  .detail-screen detail-page .country-name {
     margin-top: 0px;
+  }
+  .detail-screen detail-page .buttons {
+    margin: 0px 0px 60px;
   }
 }
 /*# sourceMappingURL=style.css.map */

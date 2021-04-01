@@ -45,9 +45,12 @@
       </select>
     </secton>
     <section class="countries" id="countries"></section>
-    <section class="detail-screen" id="detial-screen">
+    <section class="detail-screen" id="detail-screen">
       <detail-page>
-        <i slot="icon" style="font-weight: 300" class="fas fa-arrow-left"></i>
+        <button slot="back-button" id="back-button" class="back-button">
+          <i style="font-weight: 300" class="fas fa-arrow-left"></i>
+          Back
+        </button>
         <img id="detail-flag" slot="image" src="" alt="" />
         <h3 id="detail-country" slot="country-name" class="country-name"></h3>
         <span id="native-name" slot="native-name"></span>
@@ -56,6 +59,9 @@
         <span id="sub-region" slot="sub-region"></span>
         <span id="capital" slot="capital"></span>
         <span id="domain" slot="domain"></span>
+        <span id="language" slot="language"></span>
+        <span id="currency" slot="currency"></span>
+        <div class="buttons" id="buttons" slot="buttons"></div>
       </detail-page>
     </section>
 
@@ -97,14 +103,6 @@
           min-height: calc(100vh - 110px);
           margin: 40px auto 0px;
         }
-        .back-button {
-          padding: 8px 28px;
-          border: none;
-          background: white;
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          color: hsl(0, 0%, 23%);
-          font-weight: 300;
-        }
         .detail-grid {
           display: grid;
           width: 100%;
@@ -125,24 +123,6 @@
         .border-countries-head {
           font-size: 16px;
           color: hsl(0, 0%, 23%);
-        }
-        .buttons {
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
-          margin: 15px 0 60px;
-        }
-
-        .buttons button {
-          width: 90px;
-          height: 25px;
-          border: none;
-          margin: 0px 5px 10px;
-          background: white;
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-          font-weight: 300;
-          color: hsl(0, 0%, 23%);
-          font-size: 12px;
         }
 
         @media only screen and (min-width: 376px) {
@@ -166,15 +146,12 @@
             grid-template-columns: 143px 1fr;
           }
           .border-countries h3 {
-            margin-top: 15px;
-          }
-          .buttons {
-            margin: 0px 0px 60px;
+            margin-top: 0px;
           }
       </style>
 
       <div class="details">
-        <button class="back-button"><slot name="icon"></slot>Back</button>
+        <slot name="back-button"></slot>
         <div class="detail-grid">
           <slot name="image">country flag</slot>
           <div class="detail-info">
@@ -185,7 +162,7 @@
                 <p>Population: <slot name="population">population</slot></p>
                 <p>Region: <slot name="region">region</slot></p>
                 <p>Sub Region: <slot name="sub-region">sub-region</slot></p>
-                <p>Capital:<slot name="capital">capital</slot></p>
+                <p>Capital: <slot name="capital">capital</slot></p>
               </div>
               <div class="space">
                 <p>Top Level Domain: <slot name="domain">domain</slot></p>
@@ -195,7 +172,7 @@
             </div>
             <div class="border-countries">
               <h3 class="border-countries-head">Border Countries:</h3>
-              <div class="buttons" id="buttons"></div>
+              <slot name="buttons"></slot>
             </div>
           </div>
         </div>

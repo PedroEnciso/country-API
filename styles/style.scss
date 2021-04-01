@@ -46,7 +46,6 @@ header {
 }
 
 .input-area {
-  display: none;
   width: 90%;
   margin: 20px auto 0;
   position: relative;
@@ -77,7 +76,6 @@ header {
 }
 
 .countries {
-  display: none;
   width: 70%;
   margin: 30px auto;
   height: 50vh;
@@ -98,34 +96,69 @@ header {
   }
 }
 
-detail-page {
-  i {
-    font-size: 14px;
-    padding-right: 10px;
-    color: hsl(0, 0%, 23%);
-  }
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  .country-name {
-    margin: 40px 0 10px;
-    font-size: 20px;
-  }
-  span {
-    font-weight: 300;
+.detail-screen {
+  display: none;
+  detail-page {
+    .back-button {
+      padding: 8px 28px;
+      border: none;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      color: hsl(0, 0%, 23%);
+      font-weight: 300;
+      i {
+        font-size: 14px;
+        padding-right: 10px;
+        color: hsl(0, 0%, 23%);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .country-name {
+      margin: 40px 0 10px;
+      font-size: 20px;
+    }
+    span {
+      font-weight: 300;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 15px 0 60px;
+    }
+
+    .buttons button {
+      width: 90px;
+      height: 25px;
+      border: none;
+      margin: 0px 5px 10px;
+      background: white;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      font-weight: 300;
+      color: hsl(0, 0%, 23%);
+      font-size: 12px;
+    }
   }
 }
 
 @media only screen and (min-width: 376px) {
-  detail-page {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    .country-name {
-      margin-top: 0px;
+  .detail-screen {
+    detail-page {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .country-name {
+        margin-top: 0px;
+      }
+      .buttons {
+        margin: 0px 0px 60px;
+      }
     }
   }
 }
