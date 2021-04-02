@@ -179,7 +179,6 @@ const clearScreen = () => {
   input.value = "";
   suggestionPanel.innerHTML = "";
   inputArea.style.display = "none";
-  selectArea.style.display = "none";
   countrySection.style.display = "none";
   detailScreen.style.display = "block";
 };
@@ -187,8 +186,7 @@ const clearScreen = () => {
 /////// CHANGE WHEN WORKING ON SELECT AREA ///////
 const backToHome = () => {
   removeButtons();
-  inputArea.style.display = "block";
-  selectArea.style.display = "none";
+  inputArea.style.display = "flex";
   countrySection.style.display = "flex";
   detailScreen.style.display = "none";
 };

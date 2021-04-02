@@ -261,6 +261,8 @@ header .header .dark-mode p {
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .detail-screen detail-page .country-name {
