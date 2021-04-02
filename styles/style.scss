@@ -51,29 +51,57 @@ header {
 .input-area {
   width: 90%;
   margin: 20px auto 0;
-  .icon-container {
-    position: relative;
-    i {
-      position: absolute;
-      top: 22px;
-      left: 35px;
-      transform: translate(-50%, -50%);
-      color: hsl(0, 0%, 52%);
+  .input-container {
+    width: 100%;
+    max-width: 475px;
+    .icon-container {
+      position: relative;
+      i {
+        position: absolute;
+        top: 22px;
+        left: 35px;
+        transform: translate(-50%, -50%);
+        color: hsl(0, 0%, 52%);
+      }
+    }
+    input {
+      width: 100%;
+      height: 45px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+      padding-left: 75px;
+    }
+    ::placeholder {
+      color: hsl(0, 0%, 70%);
     }
   }
-  input {
-    width: 100%;
-    height: 45px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-    padding-left: 75px;
+  .select-area {
+    width: 90%;
+    margin: 40px auto 0px;
   }
-  ::placeholder {
-    color: hsl(0, 0%, 70%);
+}
+@media only screen and (min-width: 376px) {
+  .input-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .select-area {
+      width: fit-content;
+      margin: 0px 0px;
+    }
   }
+}
+
+.suggestions {
+  width: 90%;
+  margin: 0px auto;
+  position: absolute;
+  left: 5%;
+
   .suggestion-panel {
     width: 100%;
+    max-width: 475px;
     border-radius: 5px 5px 5px 5px;
     background: white;
     margin-top: 15px;
@@ -105,12 +133,6 @@ header {
       background: hsl(207, 10%, 82%);
     }
   }
-}
-
-.select-area {
-  display: none;
-  width: 90%;
-  margin: 40px auto 0px;
 }
 
 .countries {

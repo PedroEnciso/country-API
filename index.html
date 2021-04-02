@@ -31,22 +31,36 @@
     </header>
 
     <section class="input-area" id="input-area">
-      <div class="icon-container">
-        <i class="fas fa-search"></i>
+      <div class="input-container">
+        <div class="icon-container">
+          <i class="fas fa-search"></i>
+        </div>
+        <input
+          autocomplete="off"
+          id="input"
+          placeholder="Search for a country..."
+          type="text"
+        />
       </div>
-      <input autocomplete="off" id="input" placeholder="Search for a country..." type="text" />
-      <div class="suggestion-panel" id="suggestion-panel">
+      <div class="select-area" id="select-area">
+        <select name="regions" id="filter">
+          <option value="0">Filter by Region</option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
+      </div>
     </section>
-    <secton class="select-area" id="select-area">
-      <select name="regions" id="filter">
-        <option value="0">Filter by Region</option>
-        <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
-    </secton>
+    <section class="suggestions">
+      <div class="suggestion-panel" id="suggestion-panel">
+        <button>hello</button>
+        <hr />
+        <button>world</button>
+      </div>
+    </section>
+
     <section class="countries" id="countries"></section>
     <section class="detail-screen" id="detail-screen">
       <detail-page>
@@ -152,6 +166,7 @@
           .border-countries h3 {
             margin-top: 0px;
           }
+        }
       </style>
 
       <div class="details">
