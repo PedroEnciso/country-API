@@ -35,6 +35,10 @@ const AUTOCOMPLETE_OPTIONS = 4;
 const input = document.getElementById("input");
 const suggestionPanel = document.getElementById("suggestion-panel");
 let countryNameArray = [];
+let toggle = false;
+const selectOptions = document.getElementById("select-options");
+const icon = document.getElementById("icon");
+let deg = 180;
 
 // detail page variables
 const backButton = document.getElementById("back-button");
@@ -172,6 +176,18 @@ const createSuggestion = (country, index, arrayLength) => {
   }
   if (input.value === "") {
     suggestionPanel.innerHTML = "";
+  }
+};
+
+const toggleFilter = () => {
+  toggle
+    ? (selectOptions.style.display = "none")
+    : (selectOptions.style.display = "block");
+  toggle = !toggle;
+  icon.style.transform = `rotate(${deg}deg)`;
+  deg += deg;
+  if (deg > 360) {
+    deg = 180;
   }
 };
 

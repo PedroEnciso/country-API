@@ -158,9 +158,12 @@ header .header .dark-mode p {
 .input-area .select-area .select .button i {
   font-weight: 500;
   font-size: 12px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .input-area .select-area .select-options {
+  display: none;
   width: 200px;
   position: absolute;
   top: 50px;

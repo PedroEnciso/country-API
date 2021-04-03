@@ -99,10 +99,12 @@ header {
         i {
           font-weight: 500;
           font-size: 12px;
+          transition: all 0.3s;
         }
       }
     }
     .select-options {
+      display: none;
       width: 200px;
       position: absolute;
       top: 50px;
