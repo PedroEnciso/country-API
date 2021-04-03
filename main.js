@@ -186,7 +186,7 @@ const clearScreen = () => {
 /////// CHANGE WHEN WORKING ON SELECT AREA ///////
 const backToHome = () => {
   removeButtons();
-  inputArea.style.display = "flex";
+  inputArea.style.display = "block";
   countrySection.style.display = "flex";
   detailScreen.style.display = "none";
 };

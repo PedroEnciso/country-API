@@ -207,6 +207,7 @@ header .header .dark-mode p {
   margin: 0px auto;
   position: absolute;
   left: 5%;
+  z-index: 100;
 }
 
 .suggestions .suggestion-panel {
@@ -249,6 +250,12 @@ header .header .dark-mode p {
   border: none;
   height: 1px;
   background: #cdd2d6;
+}
+
+@media only screen and (min-width: 376px) {
+  .suggestions {
+    max-width: 475px;
+  }
 }
 
 .countries {
