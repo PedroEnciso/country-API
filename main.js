@@ -39,6 +39,12 @@ let toggle = false;
 const selectOptions = document.getElementById("select-options");
 const icon = document.getElementById("icon");
 let deg = 180;
+const africa = document.getElementById("africa");
+const asia = document.getElementById("asia");
+const americas = document.getElementById("americas");
+const europe = document.getElementById("europe");
+const oceania = document.getElementById("oceania");
+const none = document.getElementById("none");
 
 // detail page variables
 const backButton = document.getElementById("back-button");
@@ -184,11 +190,12 @@ const toggleFilter = () => {
     ? (selectOptions.style.display = "none")
     : (selectOptions.style.display = "block");
   toggle = !toggle;
-  icon.style.transform = `rotate(${deg}deg)`;
-  deg += deg;
-  if (deg > 360) {
-    deg = 180;
-  }
+  rotateIcon();
+};
+
+const filterCountries = (e) => {
+  const filterName = e.target.innerHTML;
+  main(filterName);
 };
 
 const clearScreen = () => {
@@ -200,13 +207,20 @@ const clearScreen = () => {
   detailScreen.style.display = "block";
 };
 
-/////// CHANGE WHEN WORKING ON SELECT AREA ///////
 const backToHome = () => {
   removeButtons();
   inputArea.style.visibility = "visible";
   inputArea.style.height = "auto";
   countrySection.style.display = "flex";
   detailScreen.style.display = "none";
+};
+
+const rotateIcon = () => {
+  icon.style.transform = `rotate(${deg}deg)`;
+  deg += deg;
+  if (deg > 360) {
+    deg = 180;
+  }
 };
 
 const removeButtons = () => {
@@ -220,17 +234,32 @@ const capitalize = (s) => {
 };
 
 // main logic
-const main = async () => {
+const main = async (filter) => {
   const countryData = await getData();
 
-  for (i = 0; i < countryData.length; i++) {
-    createCountryCard(countryData[i]);
-    countryNameArray.push(countryData[i].name);
+  if (filter === "none") {
+    for (i = 0; i < countryData.length; i++) {
+      createCountryCard(countryData[i]);
+      countryNameArray.push(countryData[i].name);
+    }
+  } else {
+    countrySection.innerHTML = "";
+    for (i = 0; i < countryData.length; i++) {
+      if (countryData[i].region === filter) {
+        createCountryCard(countryData[i]);
+      }
+    }
   }
 };
 
 //event listeners
 backButton.addEventListener("click", backToHome);
+africa.addEventListener("click", filterCountries);
+asia.addEventListener("click", filterCountries);
+americas.addEventListener("click", filterCountries);
+europe.addEventListener("click", filterCountries);
+oceania.addEventListener("click", filterCountries);
+none.addEventListener("click", filterCountries);
 
 // autocomplete functionality
 input.addEventListener("keyup", () => {
@@ -251,4 +280,4 @@ input.addEventListener("keyup", () => {
 });
 
 // calling functions
-main();
+main("none");
