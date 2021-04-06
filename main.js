@@ -237,7 +237,8 @@ const capitalize = (s) => {
 const main = async (filter) => {
   const countryData = await getData();
 
-  if (filter === "none") {
+  if (filter === "None") {
+    countrySection.innerHTML = "";
     for (i = 0; i < countryData.length; i++) {
       createCountryCard(countryData[i]);
       countryNameArray.push(countryData[i].name);
@@ -280,4 +281,4 @@ input.addEventListener("keyup", () => {
 });
 
 // calling functions
-main("none");
+main("None");
