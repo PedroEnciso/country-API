@@ -59,9 +59,7 @@ header {
     .dark-mode {
       display: flex;
       align-items: center;
-      .moon-dark {
-        display: none;
-      }
+      cursor: pointer;
       p {
         margin-left: 10px;
         font-weight: 600;
@@ -149,7 +147,7 @@ header {
     }
   }
 }
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 800px) {
   .input-area {
     display: flex;
     margin-top: 40px;
@@ -205,7 +203,7 @@ header {
     }
   }
 }
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 800px) {
   .suggestions {
     max-width: 475px;
   }
@@ -217,7 +215,7 @@ header {
   height: 50vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   background: var(--background);
   country-card {
     img {
@@ -236,9 +234,10 @@ header {
   }
 }
 
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 650px) {
   .countries {
     width: 90%;
+    justify-content: space-between;
     country-card {
       margin-bottom: 60px;
     }
@@ -264,7 +263,6 @@ header {
 
     img {
       width: 100%;
-      height: 200px;
       object-fit: cover;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
@@ -296,12 +294,11 @@ header {
   }
 }
 
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 800px) {
   .detail-screen {
     detail-page {
       img {
         width: 100%;
-        height: 100%;
       }
       .country-name {
         margin-top: 0px;
