@@ -1,3 +1,18 @@
+:root {
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --background: hsl(0, 0%, 98%);
+  --element-background: hsl(0, 0%, 100%);
+  --suggestion-hover: hsl(207, 10%, 82%);
+}
+
+.darkmode {
+  --text: hsl(0, 0%, 100%);
+  --background: hsl(207, 26%, 17%);
+  --element-background: hsl(209, 23%, 22%);
+  --suggestion-hover: hsl(208, 23%, 29%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +24,18 @@ html {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-size: 14px;
+  color: var(--text);
 }
 
 body {
-  background: #fafafa;
+  background: var(--background);
+}
+
+body h1,
+body h3,
+body i,
+body p {
+  color: var(--text);
 }
 
 body button {
@@ -33,7 +56,7 @@ header {
           justify-content: center;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-  background: white;
+  background: var(--element-background);
 }
 
 header .header {
@@ -75,6 +98,7 @@ header .header .dark-mode p {
 .input-area {
   width: 90%;
   margin: 20px auto 0;
+  background: var(--background);
 }
 
 .input-area .input-container {
@@ -103,22 +127,24 @@ header .header .dark-mode p {
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
   padding-left: 75px;
+  background: var(--element-background);
+  color: var(--text);
 }
 
 .input-area .input-container ::-webkit-input-placeholder {
-  color: #b3b3b3;
+  color: var(--input);
 }
 
 .input-area .input-container :-ms-input-placeholder {
-  color: #b3b3b3;
+  color: var(--input);
 }
 
 .input-area .input-container ::-ms-input-placeholder {
-  color: #b3b3b3;
+  color: var(--input);
 }
 
 .input-area .input-container ::placeholder {
-  color: #b3b3b3;
+  color: var(--input);
 }
 
 .input-area .select-area {
@@ -134,6 +160,7 @@ header .header .dark-mode p {
   height: 45px;
   padding: 0px 25px;
   border-radius: 5px;
+  background: var(--element-background);
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
@@ -167,7 +194,7 @@ header .header .dark-mode p {
   width: 200px;
   position: absolute;
   top: 50px;
-  background: white;
+  background: var(--element-background);
   padding: 10px 0px 10px 25px;
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
@@ -217,7 +244,7 @@ header .header .dark-mode p {
   width: 100%;
   max-width: 475px;
   border-radius: 5px 5px 5px 5px;
-  background: white;
+  background: var(--element-background);
   margin-top: 15px;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -225,7 +252,8 @@ header .header .dark-mode p {
 
 .suggestions .suggestion-panel button {
   width: 100%;
-  background: white;
+  background: var(--element-background);
+  color: var(--text);
   padding: 15px 0px 15px 75px;
   cursor: pointer;
   border: none;
@@ -246,7 +274,7 @@ header .header .dark-mode p {
 }
 
 .suggestions .suggestion-panel button:hover {
-  background: #cdd2d6;
+  background: var(--suggestion-hover);
 }
 
 .suggestions .suggestion-panel hr {
@@ -273,6 +301,7 @@ header .header .dark-mode p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background: var(--background);
 }
 
 .countries country-card img {
@@ -309,17 +338,17 @@ header .header .dark-mode p {
 .detail-screen detail-page .back-button {
   padding: 8px 28px;
   border: none;
-  background: white;
+  background: var(--element-background);
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  color: #3b3b3b;
+  color: var(--text);
   font-weight: 300;
 }
 
 .detail-screen detail-page .back-button i {
   font-size: 14px;
   padding-right: 10px;
-  color: #3b3b3b;
+  color: var(--text);
 }
 
 .detail-screen detail-page img {
@@ -355,11 +384,11 @@ header .header .dark-mode p {
   height: 25px;
   border: none;
   margin: 0px 5px 10px;
-  background: white;
+  background: var(--element-background);
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   font-weight: 300;
-  color: #3b3b3b;
+  color: var(--text);
   font-size: 12px;
 }
 

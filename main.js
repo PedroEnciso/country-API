@@ -45,6 +45,9 @@ const americas = document.getElementById("americas");
 const europe = document.getElementById("europe");
 const oceania = document.getElementById("oceania");
 const none = document.getElementById("none");
+const body = document.querySelector("body");
+const button = document.getElementById("dark-mode");
+let isDark = false;
 
 // detail page variables
 const backButton = document.getElementById("back-button");
@@ -193,6 +196,11 @@ const toggleFilter = () => {
   rotateIcon();
 };
 
+const toggleDarkMode = () => {
+  isDark ? body.classList.remove("darkmode") : body.classList.add("darkmode");
+  isDark = !isDark;
+};
+
 const filterCountries = (e) => {
   const filterName = e.target.innerHTML;
   main(filterName);
@@ -261,6 +269,7 @@ americas.addEventListener("click", filterCountries);
 europe.addEventListener("click", filterCountries);
 oceania.addEventListener("click", filterCountries);
 none.addEventListener("click", filterCountries);
+button.addEventListener("click", toggleDarkMode);
 
 // autocomplete functionality
 input.addEventListener("keyup", () => {
