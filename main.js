@@ -68,7 +68,7 @@ const buttonDiv = document.getElementById("buttons");
 
 // get data from api
 const getData = async () => {
-  let response = await fetch("https://restcountries.eu/rest/v2/all");
+  let response = await fetch("https://restcountries.com/v3.1/all");
   let data = response.json();
   return data;
 };
@@ -76,7 +76,7 @@ const getData = async () => {
 const createCountryCard = (country) => {
   // create card component
   const card = document.createElement("country-card");
-  card.setAttribute("id", country.name);
+  card.setAttribute("id", country.name.common);
   card.addEventListener("click", () => createDetailPage(country));
   // create info Components
   const flag = document.createElement("img");
@@ -85,8 +85,8 @@ const createCountryCard = (country) => {
   const region = document.createElement("span");
   const capital = document.createElement("span");
   // add info to components
-  flag.src = country.flag;
-  name.innerHTML = country.name;
+  flag.src = country.flags.svg;
+  name.innerHTML = country.name.common;
   population.innerHTML = country.population;
   region.innerHTML = country.region;
   capital.innerHTML = country.capital;
@@ -109,8 +109,8 @@ const createCountryCard = (country) => {
 const createDetailPage = (country) => {
   clearScreen();
   removeButtons();
-  detailFlag.src = country.flag;
-  detailCountry.innerHTML = country.name;
+  detailFlag.src = country.flags.svg;
+  detailCountry.innerHTML = country.name.common;
   nativeName.innerHTML = country.nativeName;
   population.innerHTML = country.population;
   region.innerHTML = country.region;
@@ -123,15 +123,16 @@ const createDetailPage = (country) => {
 };
 
 const createSpecificDetailPageWithAbbreviation = (abbreviation) => {
-  fetch(`https://restcountries.eu/rest/v2/alpha/${abbreviation}`)
+  fetch(`https://restcountries.com/v3.1/alpha/${abbreviation}`)
     .then((resp) => resp.json())
     .then((data) => {
-      createDetailPage(data);
+      // this endpoint returns an array
+      createDetailPage(data[0]);
     });
 };
 
 const createSpecificDetailPageWithName = (name) => {
-  fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+  fetch(`https://restcountries.com/v3.1/name/${name}`)
     .then((resp) => resp.json())
     .then((data) => {
       createDetailPage(data[0]);
@@ -161,13 +162,20 @@ const getLanguages = (country) => {
 };
 
 const createBorderButtons = (country) => {
-  for (let i = 0; i < country.borders.length; i++) {
-    const button = document.createElement("BUTTON");
-    button.innerHTML = country.borders[i];
-    button.addEventListener("click", () => {
-      createSpecificDetailPageWithAbbreviation(button.innerHTML);
+  if (!country.borders) {
+    const p = document.createElement("p");
+    const message = "There are no bordering countries.";
+    p.innerText = message;
+    buttonDiv.appendChild(p);
+  } else {
+    country.borders.forEach((border) => {
+      const button = document.createElement("BUTTON");
+      button.innerHTML = border;
+      button.addEventListener("click", () => {
+        createSpecificDetailPageWithAbbreviation(button.innerHTML);
+      });
+      buttonDiv.appendChild(button);
     });
-    buttonDiv.appendChild(button);
   }
 };
 
@@ -247,17 +255,19 @@ const main = async (filter) => {
 
   if (filter === "None") {
     countrySection.innerHTML = "";
-    for (i = 0; i < countryData.length; i++) {
-      createCountryCard(countryData[i]);
-      countryNameArray.push(countryData[i].name);
-    }
+    // create a card for every country
+    countryData.forEach((country) => {
+      createCountryCard(country);
+      countryNameArray.push(country.name.common);
+    });
   } else {
     countrySection.innerHTML = "";
-    for (i = 0; i < countryData.length; i++) {
-      if (countryData[i].region === filter) {
-        createCountryCard(countryData[i]);
-      }
-    }
+    const filteredCountries = countryData.filter(
+      (country) => country.region === filter
+    );
+    filteredCountries.forEach((country) => {
+      createCountryCard(country);
+    });
   }
 };
 
