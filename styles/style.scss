@@ -212,14 +212,13 @@ header {
 .countries {
   width: 70%;
   margin: 40px auto;
-  height: 50vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background: var(--background);
   country-card {
     img {
-      width: 100%;
+      width: 275px;
       height: 150px;
       object-fit: cover;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);

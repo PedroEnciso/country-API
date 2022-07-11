@@ -111,12 +111,15 @@ const createDetailPage = (country) => {
   removeButtons();
   detailFlag.src = country.flags.svg;
   detailCountry.innerHTML = country.name.common;
-  nativeName.innerHTML = country.nativeName;
+
+  const nameKeys = Object.keys(country.name.nativeName);
+  const nativeAbb = nameKeys[0];
+  nativeName.innerHTML = country.name.nativeName[nativeAbb].official;
   population.innerHTML = country.population;
   region.innerHTML = country.region;
   subRegion.innerHTML = country.subregion;
   capital.innerHTML = country.capital;
-  domain.innerHTML = country.topLevelDomain;
+  domain.innerHTML = country.tld;
   getCurrencies(country);
   getLanguages(country);
   createBorderButtons(country);
@@ -140,25 +143,23 @@ const createSpecificDetailPageWithName = (name) => {
 };
 
 const getCurrencies = (country) => {
-  currencyList = "";
-  for (let i = 0; i < country.currencies.length; i++) {
-    currencyList += country.currencies[i].name;
-    if (i < country.currencies.length - 1) {
-      currencyList += ", ";
-    }
-  }
-  currency.innerHTML = currencyList;
+  currencyList = [];
+  const currencies = Object.keys(country.currencies);
+  currencies.forEach((currency) => {
+    const currencyName = `${country.currencies[currency].name} (${country.currencies[currency].symbol})`;
+    currencyList.push(currencyName);
+  });
+  currency.innerHTML = currencyList.join(", ");
 };
 
 const getLanguages = (country) => {
-  languageList = "";
-  for (let i = 0; i < country.languages.length; i++) {
-    languageList += country.languages[i].name;
-    if (i < country.languages.length - 1) {
-      languageList += ", ";
-    }
-  }
-  language.innerHTML = languageList;
+  languageList = [];
+  const languages = Object.keys(country.languages);
+  languages.forEach((language) => {
+    languageList.push(country.languages[language]);
+  });
+
+  language.innerHTML = languageList.join(", ");
 };
 
 const createBorderButtons = (country) => {

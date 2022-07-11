@@ -289,7 +289,6 @@ header .header .dark-mode p {
 .countries {
   width: 70%;
   margin: 40px auto;
-  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,7 +301,7 @@ header .header .dark-mode p {
 }
 
 .countries country-card img {
-  width: 100%;
+  width: 275px;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
